@@ -11,7 +11,7 @@ pm25_totals_Baltimore_City <- tapply(NEI_Baltimore_City$Emissions,
                                      NEI_Baltimore_City$year, sum)
 
 ## Initialize png plotting device
-png(filename = "plot1.png")
+png(filename = "plot2.png")
 
 ## Create line graph in base plotting system showing Baltimore City emissions
 ## over time
