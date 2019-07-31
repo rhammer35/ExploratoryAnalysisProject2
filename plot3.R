@@ -22,7 +22,7 @@ totals <- c(tapply(Baltimore_City_pt$Emissions, Baltimore_City_pt$year, sum),
             tapply(Baltimore_City_nr$Emissions, Baltimore_City_nr$year, sum))
 year <- unique(NEI_Baltimore_City$year)
 type <- unique(NEI_Baltimore_City$type)
-Baltimore_City_Summary <- data.frame(Totals = Totals, Averages = averages, 
+Baltimore_City_Summary <- data.frame(Totals = totals, Averages = averages, 
                                       Year = rep(year, 4), 
                                       Type = rep(type[1:4], each = 4))
 colnames(Baltimore_City_Summary)[1] <- "Yearly Total Emission (in tons)"
