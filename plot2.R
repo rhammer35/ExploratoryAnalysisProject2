@@ -9,3 +9,15 @@ NEI_Baltimore_City <- subset(NEI, fips == "24510")
 ## data set and store the values
 pm25_totals_Baltimore_City <- tapply(NEI_Baltimore_City$Emissions,
                                      NEI_Baltimore_City$year, sum)
+
+## Initialize png plotting device
+png(filename = "plot1.png")
+
+## Create line graph in base plotting system showing Baltimore City emissions
+## over time
+plot(unique(NEI_Baltimore_City$year), pm25_totals_Baltimore_City, type = "l",
+     ylab = "Total Emissions (in tons)", xlab = "",
+     main = "pm2.5 emissions in Baltimore City, Maryland over time")
+
+## End plotting device
+dev.off()
