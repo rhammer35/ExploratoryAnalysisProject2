@@ -2,6 +2,9 @@
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
+## Load ggplot2
+library(ggplot2)
+
 ## Subset NEI data into data frame containing only Baltimore City data
 NEI_Baltimore_City <- subset(NEI, fips == "24510")
 
@@ -32,9 +35,10 @@ colnames(Baltimore_City_Summary)[2] <- "Yearly Average Emission (in tons)"
 ## Initialize png plotting device
 png(filename = "plot3.png")
 
-## Load ggplot2 and create plot
-library(ggplot2)
-qplot(Year, `Yearly Total Emission (in tons)`, data = Baltimore_City_Summary, facets = .~ Type )
+## Create plot
+print(qplot(Year, `Yearly Total Emission (in tons)`, 
+            data = Baltimore_City_Summary,  geom = c("point", "smooth"),
+            facets = .~ Type))
 
 ## End plotting device
 dev.off()
