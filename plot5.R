@@ -48,7 +48,7 @@ plot(unique(NEI_Baltimore_Vehicles$year), pm25_Bmore_vehicle_avg,
      type = "l", ylab = "Average Emissions (in tons)", xlab = "")
 plot(unique(NEI_Baltimore_Vehicles$year), pm25_Bmore_vehicle_max,
      type = "l", ylab = "Maximum Measured Emission (in tons)", xlab = "")
-plot(unique(NEI_Baltimore_Vehicles$year), Bmore_Vehicle_Sources,
+plot(unique(NEI_Baltimore_Vehicles$year), Bmore_vehicle_sources,
      type = "l", ylab = "Number of Coal Emission Sources", xlab = "")
 mtext("pm2.5 motor vehicle emissions in Baltimore City", side = 3, outer = TRUE)
 
