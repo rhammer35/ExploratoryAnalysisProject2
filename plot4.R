@@ -20,3 +20,19 @@ SCC_Coal_Combustion <- merge(SCC_Coal, SCC_Lignite, all = TRUE)
 SCC_Combustion_Types <- as.character(unique(SCC_Coal_Combustion$SCC))
 NEI_Coal_Combustion <- NEI[NEI$SCC %in% SCC_Combustion_Types, ]
 
+## Taking yearly totals for emissions in NEI subset and converting to kilotons
+pm25_totals <- tapply(NEI_Coal_Combustion$Emissions, NEI_Coal_Combustion$year,
+                      sum)
+pm25_totals <- pm25_totals/1000
+
+## Initialize png plotting device
+png(filename = "plot4.png")
+
+## Create line graph in base plotting system showing total emissions over time
+plot(unique(NEI_Coal_Combustion$year), pm25_totals, type = "l",
+     ylab = "Total Emissions (in kilotons)", xlab = "",
+     main = "pm2.5 emissions from coal combustion")
+
+## End plotting device
+dev.off()
+
