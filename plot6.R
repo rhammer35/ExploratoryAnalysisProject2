@@ -63,4 +63,5 @@ print(qplot(Year, Percent_Change, data = Combined_City_df, color=Location,
             ylab = "Percent Change",
             main = "Change in Total Emissions Over Time"))
 
-
+## End plotting device
+dev.off()
