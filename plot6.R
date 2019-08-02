@@ -58,10 +58,11 @@ png(filename = "plot6.png")
 Combined_City_df$Year <- as.integer(as.character(Combined_City_df$Year))
 
 ## Create plot
+theme_update(plot.title = element_text(hjust = 0.5))
 print(qplot(Year, Percent_Change, data = Combined_City_df, color=Location,
             geom = c("point", "smooth"),
             ylab = "Percent Change",
-            main = "Change in Total Emissions Over Time"))
+            main = "Change in Total pm2.5 Emissions Over Time"))
 
 ## End plotting device
 dev.off()
